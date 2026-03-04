@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://dngpjicxa2s6c" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://cl53fdhphkbta" path="res://assets/tilesets/testTileMap.png" id="2_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://cn1w5kb65nj8f" path="res://assets/background/bg.png" id="2_wu84c"]
-[ext_resource type="Texture2D" uid="uid://dc72wkacq6otq" path="res://assets/logos/duckies.png" id="3_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://cppfxhjgvhq80" path="res://assets/ducks/mainMenu Animation.png" id="4_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://d1tutfgxvecxe" path="res://assets/logos/logoEnglish.png" id="5_8ln24"]
+[ext_resource type="FontFile" uid="uid://cil6oyyfnhq3m" path="res://assets/fonts/PLUMP.TTF" id="6_rtw2f"]
+[ext_resource type="FontFile" uid="uid://clgwbs7qm5o75" path="res://assets/fonts/GoogleSans-Italic-VariableFont_GRAD,opsz,wght.ttf" id="7_oa1go"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wu84c"]
 texture = ExtResource("2_ekxnf")
@@ -15,6 +17,44 @@ texture_region_size = Vector2i(128, 128)
 [sub_resource type="TileSet" id="TileSet_l6cm7"]
 tile_size = Vector2i(128, 128)
 sources/2 = SubResource("TileSetAtlasSource_wu84c")
+
+[sub_resource type="Animation" id="Animation_oa1go"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Duckies:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_tbmy8"]
+resource_name = "duck"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Duckies:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jk1qb"]
+_data = {
+&"RESET": SubResource("Animation_oa1go"),
+&"duck": SubResource("Animation_tbmy8")
+}
 
 [node name="mainMenu" type="Control" unique_id=400709961]
 layout_mode = 3
@@ -36,9 +76,10 @@ tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAAAAAIAAgABAAAAAAABAAIAAgABAAA
 tile_set = SubResource("TileSet_l6cm7")
 
 [node name="Duckies" type="Sprite2D" parent="." unique_id=1832214393]
-position = Vector2(172.6875, 299.8396)
-scale = Vector2(0.11565071, 0.115498565)
-texture = ExtResource("3_bqqt6")
+position = Vector2(107, 309)
+scale = Vector2(0.6947555, 0.69384146)
+texture = ExtResource("4_rtw2f")
+hframes = 2
 
 [node name="LogoEnglish" type="Sprite2D" parent="." unique_id=1589431638]
 position = Vector2(330.00003, 448)
@@ -52,6 +93,20 @@ offset_top = 509.0
 offset_right = 147.0
 offset_bottom = 557.0
 theme_override_colors/font_color = Color(0.9882353, 0.6901961, 0.2509804, 1)
+theme_override_fonts/font = ExtResource("6_rtw2f")
 theme_override_font_sizes/font_size = 35
 text = "Play"
 flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=750536825]
+libraries/ = SubResource("AnimationLibrary_jk1qb")
+
+[node name="gdVersion" type="Label" parent="." unique_id=305690127]
+modulate = Color(1, 1, 1, 0.49411765)
+layout_mode = 0
+offset_left = 547.0
+offset_top = 12.0
+offset_right = 1143.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("7_oa1go")
+horizontal_alignment = 2
