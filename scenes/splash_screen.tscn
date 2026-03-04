@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://cbi32x1q0ewwl"]
+
+[ext_resource type="Script" uid="uid://dnksl1bjxd0wd" path="res://scripts/splash_screen.gd" id="1_3mj2l"]
+[ext_resource type="FontFile" uid="uid://dl8dwgr5cey2s" path="res://assets/fonts/GoogleSans-VariableFont_GRAD,opsz,wght.ttf" id="2_vbcv6"]
+[ext_resource type="Texture2D" uid="uid://bon6k1eerfkl0" path="res://icon.svg" id="3_a2ut7"]
+[ext_resource type="Texture2D" uid="uid://dc72wkacq6otq" path="res://assets/logos/duckies.png" id="4_5osyx"]
+
+[sub_resource type="Animation" id="Animation_dhol4"]
+resource_name = "duckBounce"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Duckies:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.031600613, 0.031600617), Vector2(0.042, 0.042), Vector2(0.031600613, 0.031600617)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w4c0s"]
+_data = {
+&"duckBounce": SubResource("Animation_dhol4")
+}
+
+[node name="SplashScreen" type="Control" unique_id=800051153]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3mj2l")
+
+[node name="BG" type="ColorRect" parent="." unique_id=432676437]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.69135684, 0.6913568, 0.69135684, 1)
+
+[node name="Scene1" type="Node2D" parent="." unique_id=384801142]
+visible = false
+
+[node name="madeWith" type="Label" parent="Scene1" unique_id=1666459799]
+offset_left = 400.0
+offset_top = 192.0
+offset_right = 750.0
+offset_bottom = 237.0
+theme_override_fonts/font = ExtResource("2_vbcv6")
+theme_override_font_sizes/font_size = 35
+text = "PROUDLY MADE WITH"
+
+[node name="Icon" type="Sprite2D" parent="Scene1" unique_id=188827640]
+position = Vector2(576, 312)
+texture = ExtResource("3_a2ut7")
+
+[node name="Label" type="Label" parent="Scene1" unique_id=1774173153]
+offset_left = 16.0
+offset_top = 560.0
+offset_right = 147.0
+offset_bottom = 629.0
+theme_override_fonts/font = ExtResource("2_vbcv6")
+text = "Team members:
+Tommaso Montali,
+Valentina Chiastra"
+
+[node name="Scene2" type="Node2D" parent="." unique_id=669654640]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Scene2" unique_id=1618947866]
+offset_top = 272.0
+offset_right = 1152.0
+offset_bottom = 376.0
+theme_override_colors/default_color = Color(0.2086424, 0.503225, 0.31464526, 1)
+theme_override_fonts/normal_font = ExtResource("2_vbcv6")
+bbcode_enabled = true
+text = "Hi player, I'm the developer of Duckies! Always Remember: If you are sad, angry, depressed, lonely TRY TO FIND HAPPINESS.
+I made this game because I suffer too and I wanted a way to other to relax with out strange TikTok methods. So please relax while playing this game and Enjoy DUCKIES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="splashScreenDuration" type="Timer" parent="." unique_id=1023633588]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[node name="scene1Duration" type="Timer" parent="." unique_id=687579072]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Duckies" type="Sprite2D" parent="." unique_id=646788292]
+position = Vector2(1114, 608.00006)
+scale = Vector2(0.031600613, 0.031600617)
+texture = ExtResource("4_5osyx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=716041152]
+libraries/ = SubResource("AnimationLibrary_w4c0s")
+
+[connection signal="timeout" from="splashScreenDuration" to="." method="_on_splash_screen_duration_timeout"]
+[connection signal="timeout" from="scene1Duration" to="." method="_on_scene_1_duration_timeout"]

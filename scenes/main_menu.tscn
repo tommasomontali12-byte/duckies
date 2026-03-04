@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dngpjicxa2s6c" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Texture2D" uid="uid://cl53fdhphkbta" path="res://assets/tilesets/testTileMap.png" id="2_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://cn1w5kb65nj8f" path="res://assets/background/bg.png" id="2_wu84c"]
 [ext_resource type="Texture2D" uid="uid://dc72wkacq6otq" path="res://assets/logos/duckies.png" id="3_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://d1tutfgxvecxe" path="res://assets/logos/logoEnglish.png" id="5_8ln24"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wu84c"]
 texture = ExtResource("2_ekxnf")
@@ -23,11 +25,33 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l6cm7")
 
+[node name="background" type="TextureRect" parent="." unique_id=1315239361]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 642.0
+texture = ExtResource("2_wu84c")
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=39024365]
-tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAAAAAIAAgABAAAAAAABAAIAAgABAAAAAAABAAMAAgAAAAAAAAACAAIAAgABAAAAAAACAAMAAgAAAAAAAAAAAAQAAgAAAAAAAAABAAQAAgAAAAAAAAACAAQAAgAAAAAAAAADAAQAAgAAAAAAAAAEAAQAAgAAAAAAAAAFAAQAAgAAAAAAAAAGAAQAAgAAAAAAAAAHAAQAAgAAAAAAAAAIAAQAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAAFAAMAAgAAAAAAAAAGAAMAAgAAAAAAAAAHAAMAAgAAAAAAAAAIAAMAAgAAAAAAAAADAAIAAgABAAAAAAAEAAIAAgABAAAAAAAFAAIAAgABAAAAAAAGAAIAAgABAAAAAAAHAAIAAgABAAAAAAAIAAIAAgABAAAAAAAAAAUAAgAAAAAAAAABAAUAAgAAAAAAAAACAAUAAgAAAAAAAAADAAUAAgAAAAAAAAAEAAUAAgAAAAAAAAAFAAUAAgAAAAAAAAAGAAUAAgAAAAAAAAAHAAUAAgAAAAAAAAAIAAUAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAMAAgAAAAAAAAAAAAIAAgABAAAAAAABAAIAAgABAAAAAAABAAMAAgAAAAAAAAACAAIAAgABAAAAAAACAAMAAgAAAAAAAAADAAMAAgAAAAAAAAAEAAMAAgAAAAAAAAAFAAMAAgAAAAAAAAAGAAMAAgAAAAAAAAAHAAMAAgAAAAAAAAAIAAMAAgAAAAAAAAADAAIAAgABAAAAAAAEAAIAAgABAAAAAAAFAAIAAgABAAAAAAAGAAIAAgABAAAAAAAHAAIAAgABAAAAAAAIAAIAAgABAAAAAAAAAAQAAgAAAAAAAAABAAQAAgAAAAAAAAACAAQAAgAAAAAAAAADAAQAAgAAAAAAAAAEAAQAAgAAAAAAAAAFAAQAAgAAAAAAAAAGAAQAAgAAAAAAAAAHAAQAAgAAAAAAAAAIAAQAAgAAAAAAAAAIAAUAAgAAAAAAAAAHAAUAAgAAAAAAAAAGAAUAAgAAAAAAAAAFAAUAAgAAAAAAAAAEAAYAAgAAAAAAAAADAAYAAgAAAAAAAAACAAYAAgAAAAAAAAACAAUAAgAAAAAAAAABAAUAAgAAAAAAAAAAAAUAAgAAAAAAAAADAAUAAgAAAAAAAAAAAAYAAgAAAAAAAAABAAYAAgAAAAAAAAAFAAYAAgAAAAAAAAAEAAUAAgAAAAAAAAAIAAYAAgAAAAAAAAAHAAYAAgAAAAAAAAAGAAYAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_l6cm7")
 
 [node name="Duckies" type="Sprite2D" parent="." unique_id=1832214393]
-position = Vector2(172.6875, 299.71994)
-scale = Vector2(0.11565071, 0.11565071)
+position = Vector2(172.6875, 299.8396)
+scale = Vector2(0.11565071, 0.115498565)
 texture = ExtResource("3_bqqt6")
+
+[node name="LogoEnglish" type="Sprite2D" parent="." unique_id=1589431638]
+position = Vector2(330.00003, 448)
+scale = Vector2(0.16441436, 0.16441435)
+texture = ExtResource("5_8ln24")
+
+[node name="playButton" type="Button" parent="." unique_id=1462890816]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 509.0
+offset_right = 147.0
+offset_bottom = 557.0
+theme_override_colors/font_color = Color(0.9882353, 0.6901961, 0.2509804, 1)
+theme_override_font_sizes/font_size = 35
+text = "Play"
+flat = true
