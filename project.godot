@@ -12,6 +12,7 @@ config_version=5
 
 config/name="Duckies"
 config/version="0.1.0.0"
+run/main_scene="uid://cbi32x1q0ewwl"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
